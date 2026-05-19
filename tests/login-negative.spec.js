@@ -9,14 +9,14 @@ test('Verify Invalid login shows error message', async ({
 
 }) => {
 
-    await loginpage.goto();
+    await loginPage.goto();
 
-    await loginpage.login(
+    await loginPage.login(
         loginData.invalidUser.username,
         loginData.invalidUser.password
     );
 
-    await loginpage.verifyErrorMessage(
+    await loginPage.verifyErrorMessage(
         'Epic sadface'
     );
 });
