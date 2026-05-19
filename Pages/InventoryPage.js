@@ -4,13 +4,13 @@ class InventoryPage{
     constructor(page){
         this.page = page;
 
-        this.backpackAddToCartButton = page.locator('#add-to-cart-sauce-labs-backpack');
+        this.backpackAddToCartButton = page.locator('[data-test="add-to-cart-sauce-labs-backpack"]');
 
-        this.bikeLightAddToCartButton = page.locator('#add-to-cart-sauce-labs-bike-light');
+        this.bikeLightAddToCartButton = page.locator('[data-test="add-to-cart-sauce-labs-bike-light"]');
 
-        this.cartButton = page.locator('.shopping_cart_link');
+        this.cartButton = page.locator('[data-test="shopping-cart-link"]');
 
-        this.cartBadge = page.locator('.shopping_cart_badge');
+        this.cartBadge = page.locator('[data-test="shopping-cart-badge"]');
     }
 
     async addBackpackToCart(){

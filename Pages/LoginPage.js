@@ -1,12 +1,16 @@
+import { expect } from '@playwright/test';
+
 class LoginPage{
     constructor(page){
         this.page = page;
 
-        this.usernameInput = page.locator('#user-name');
+        this.usernameInput = page.locator('[data-test ="user-name"]');
 
-        this.passwordInput = page.locator('#password');
+        this.passwordInput = page.locator('[data-test="password"]');
 
-        this.loginButton = page.locator('#login-button');
+        this.loginButton = page.locator('[data-test="login-button"]');
+
+        this.erroMessage = page.locator('[data-test="error"]');
     }
 
     async goto(){
@@ -19,6 +23,18 @@ class LoginPage{
         await this.passwordInput.fill(password);
 
         await this.loginButton.click();
+    }
+
+    async verifyLoginSuccess() {
+
+        await expect(this.page)
+            .toHaveURL(/inventory.html/);
+    }
+
+    async verifyErrorMessage(message) {
+
+        await expect(this.erroMessage)
+            .toContainText(message);                     
     }
 }
 
