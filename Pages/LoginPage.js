@@ -4,7 +4,7 @@ class LoginPage{
     constructor(page){
         this.page = page;
 
-        this.usernameInput = page.locator('[data-test ="user-name"]');
+        this.usernameInput = page.locator('[data-test="username"]');
 
         this.passwordInput = page.locator('[data-test="password"]');
 
